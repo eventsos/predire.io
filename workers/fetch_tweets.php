@@ -10,7 +10,7 @@ require_once('lib/Pirehose/Phirehose.php');
 
 class FetchTweetsWorker extends Phirehose {
     public function enqueueStatus($status) {
-        file_put_contents('tweets.txt', $status, FILE_APPEND | LOCK_EX);
+        file_put_contents('../data/tweets.txt', $status, FILE_APPEND | LOCK_EX);
     }
 }
 
