@@ -16,10 +16,11 @@ define("TWITTER_CONSUMER_SECRET", "ifwuH9DjNHu9Yi3yYQDCludVT7AzbR3PhDDKBPgaQkwHF
 // The OAuth data for the twitter account
 define("OAUTH_TOKEN", "2842831673-Ss69IHpFJTB3n34PV1irlGRqkQ34ybXuDTa6JPT");
 define("OAUTH_SECRET", "stIK6q4fTDXqZIZAAkatCJ6dtzuaWlCytxLfCWxbKkEjg");
-
+date_default_timezone_set('Europe/Berlin');
 class FetchTweetsWorker extends OauthPhirehose {
     public function enqueueStatus($status) {
-        file_put_contents('../data/tweets.txt', $status, FILE_APPEND | LOCK_EX);
+        $today = date('Ymd');
+        file_put_contents('../data/'.$today.'_tweets.txt', $status, FILE_APPEND | LOCK_EX);
     }
 }
 
