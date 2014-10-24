@@ -6,7 +6,7 @@
  * Time: 22:06
  */
 
-require_once('lib/Pirehose/Phirehose.php');
+require_once('libs/Pirehose/Phirehose.php');
 
 class FetchTweetsWorker extends Phirehose {
     public function enqueueStatus($status) {
